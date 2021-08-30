@@ -9,3 +9,14 @@ resource "aws_vpc" "Main" {
 resource "aws_internet_gateway" "IGW" {    
   vpc_id =  aws_vpc.Main.id               
 }
+# Creating Public Subnets
+# CIDR block of public subnets
+resource "aws_subnet" "publicsubnets" {    
+  vpc_id =  aws_vpc.Main.id
+  cidr_block = "${var.public_subnets}"       
+}
+# CIDR block of private subnets
+resource "aws_subnet" "privatesubnets" {
+  vpc_id =  aws_vpc.Main.id
+  cidr_block = "${var.private_subnets}"          
+}
