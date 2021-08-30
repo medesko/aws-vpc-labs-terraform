@@ -38,12 +38,12 @@ resource "aws_route_table" "PrivateRT" {
     nat_gateway_id = aws_nat_gateway.NATgw.id
   }
 }
-#  Route table Association with Public Subnet's
+# Route table Association with Public Subnet's
 resource "aws_route_table_association" "PublicRTassociation" { 
   subnet_id = aws_subnet.publicsubnets.id 
   route_table_id = aws_route_table.PublicRT.id
 }
-#  Route table Association with Private Subnet's
+# Route table Association with Private Subnet's
 resource "aws_route_table_association" "PrivateRTassociation" {
   subnet_id = aws_subnet.privatesubnets.id
   route_table_id = aws_route_table.PrivateRT.id
